@@ -1,0 +1,61 @@
+<apex:page controller="ProductListController">
+  <apex:form >
+        <apex:pageBlock >
+        
+            <apex:pageBlock >
+           
+            <div> 
+             <h1><apex:outputText value="Search Text :"/> </h1>
+             <apex:inputText value="{!searchstring}" label="Search Text"/>&nbsp;&nbsp;
+             <apex:commandButton value="Go" action="{!Search}"/>
+             
+              <span style="float: right; margin: 5px 5px 5px 5px;"> <apex:repeat value="{!alphabetListing}" var="alphabet">
+                  <apex:commandLink value="{!alphabet}" action="{!alphabetClick}">
+                     <apex:param name="alpha" value="{!alphabet}"/>
+                  </apex:commandLink> &nbsp;&nbsp;  
+               </apex:repeat>
+            </span>
+            </div>
+            </apex:pageBlock>
+            <apex:pageBlockTable value="{!ProductList}" var="pro">
+                <apex:column headerValue="select">
+                    <apex:inputCheckbox value="{!pro.CheckBox}">
+                        <apex:actionSupport event="onchange" action="{!addRecord}" reRender="output" >
+                        <apex:param name="schId" value="{!pro.pr.id}"/>
+                        </apex:actionSupport>
+                     </apex:inputCheckbox>
+                </apex:column> 
+                <apex:column value="{!pro.pr.Name}"/>
+                <apex:column value="{!pro.pr.ProductCode}"/>
+                <apex:column value="{!pro.pr.Family}"/>
+            </apex:pageBlockTable>
+           </apex:pageBlock>
+           <apex:pageBlock >
+            <apex:commandButton rendered="{!setCon.hasPrevious}" value="first" action="{!setCon.first}"/>
+            <apex:commandButton rendered="{!setCon.hasPrevious}" value="Previous" action="{!setCon.previous}"/>
+            <apex:outputText rendered="{!(setCon.pageNumber * setCon.pageSize) < setCon.ResultSize}" value="{!setCon.pageNumber * setCon.pageSize} Of {!setCon.ResultSize}"></apex:outputText>
+            <apex:outputText rendered="{!(setCon.pageNumber * setCon.pageSize) >= setCon.ResultSize}" value="{!setCon.ResultSize} Of {!setCon.ResultSize}"></apex:outputText>
+           
+            <apex:commandButton rendered="{!setCon.hasNext}" value="next" action="{!setCon.next}"/>
+           
+            <apex:commandButton rendered="{!setCon.hasNext}" value="last" action="{!setCon.last}"/>
+            
+      </apex:pageBlock>
+        
+      <apex:pageblock title="Selected List Of Users">
+        
+           <apex:pageBlockTable value="{!selectedList}" var="New" id="output">
+                <apex:column value="{!New.Name}"/>
+                <apex:column value="{!New.ProductCode}"/>
+                <apex:column value="{!New.Family}"/>
+            </apex:pageBlockTable> 
+            
+            <apex:pageBlockButtons >
+                   <apex:commandButton value="Save" action="{!Save}" onclick="window.close()"/>
+                   <apex:commandButton value="Cancel" onclick="window.close()"/>
+            </apex:pageBlockButtons>   
+          
+     </apex:pageblock>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,49 @@
+<apex:page controller="popup">
+
+  <style type="text/css">
+
+        .popup
+        {
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            width: 500px;
+            margin-left: -250px;
+            top:80px;
+        }
+
+        .popupBg
+        {
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 70);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+
+    </style>
+   
+    <apex:form >
+        <apex:commandButton value="Show" action="{!showPopup}" rerender="popup"/>
+        <apex:pageBlock >
+            Click Show button for popup.
+        </apex:pageBlock>
+
+        <apex:outputPanel id="popup">
+        <apex:outputPanel styleClass="popupBg" layout="block" rendered="{!displayPopUp}"/>
+            <apex:outputPanel styleClass="popup" layout="block" rendered="{!displayPopUp}">
+                Popup window
+                <apex:commandButton value="Hide" action="{!closePopup}" rerender="popup"/>
+            </apex:outputPanel>
+        </apex:outputPanel>
+
+    </apex:form>
+</apex:page>

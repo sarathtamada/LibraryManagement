@@ -1,0 +1,9 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+    {!$User.LastName}
+  This is your new Page: user
+    <h5> {!$User.FirstName} </h5>
+  <!-- End Default Content REMOVE THIS -->
+  <apex:outputText value="logout"></apex:outputText>
+</apex:page>

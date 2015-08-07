@@ -1,0 +1,89 @@
+<apex:page sidebar="false">
+  <style>
+  .left-navbar {
+    width: 260px;
+    height: 100%;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #333333;
+    overflow-x: none;
+    overflow-y: auto;
+    color: white;
+    -webkit-box-shadow: inset 0 0 5px 5px #222222;
+    -moz-box-shadow: inset 0 0 5px 5px #222222;
+    box-shadow: inset 0 0 5px 5px #222222;
+    border-radius: 0;
+}
+#profile {
+    padding: 25px 10px 10px 10px;
+    text-align: center;
+    position: relative;
+}
+#profile .pic {
+    background-image: url('../img/profile.jpg');
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+#profile .name h2 {
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 40px;
+    color: white;
+    margin: 5px;
+}
+#profile .tag h3 {
+    font-family: "Buenard", serif;
+    font-size: 15px;
+    color: white;
+    margin: 0;
+}
+.nav-menu {
+    text-align: center;
+    padding: 15px 0 25px 0;
+    margin: 0;
+}
+.nav-menu ul li a {
+    list-style: none;
+    text-align: center;
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+  
+  </style>
+ 
+ 
+  <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="left-navbar navbar hidden-xs" role="navigation">
+            <div id="profile">
+                <div class="pic"></div>
+                <div class="name">
+                    <h2>Personal Site</h2>
+                </div>
+                <div class="tag">
+                    <h3>A simple blogging site</h3>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-menu nav-pills nav-stacked">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Projects
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Project Blog</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</apex:page>

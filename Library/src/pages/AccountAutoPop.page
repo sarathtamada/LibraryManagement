@@ -1,0 +1,23 @@
+<apex:page StandardController="Account">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+          <apex:inputfield value="{!Account.name}" />
+             <apex:pageBlockSectionItem >
+             <apex:outputLabel >parent</apex:outputLabel>
+             <c:Autocomplete labelField="Name" valueField="Id" SObject="Account" targetField="{!Account.parentid}" id="combobox"/>
+             </apex:pageBlockSectionItem>
+             
+              <apex:pageBlockSectionItem >
+             <apex:outputLabel >Owner</apex:outputLabel>
+             <c:Autocomplete labelField="Name" valueField="Id" SObject="User" targetField="{!Account.Ownerid}" id="combobox"/>
+             </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" styleClass="btn btn-success" value="Save" />
+                <apex:commandButton action="{!cancel}" styleClass="btn btn-success" value="Cancel" />
+                
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

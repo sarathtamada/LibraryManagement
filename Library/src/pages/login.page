@@ -1,0 +1,25 @@
+<apex:page controller="login" sidebar="false" >
+<apex:form >
+   <apex:pageBlock >
+  
+      <apex:pageBlockSection title="LOGIN/SIGNUP">
+     
+              <apex:outputLabel > Username </apex:outputLabel>        
+                <apex:inputText id="Username" value="{!Username}"/>
+                
+               <apex:outputLabel >Password </apex:outputLabel>           
+                <apex:inputText id="Password" value="{!Password}"/>
+                
+                
+            &nbsp;         <apex:commandButton value="login" action="{!login}"  />  
+                &nbsp;      <apex:commandButton value="signup" action="{!signup}"  />  
+                     
+
+                 
+      </apex:pageBlockSection>
+  
+   
+   </apex:pageBlock>
+   
+</apex:form>
+</apex:page>

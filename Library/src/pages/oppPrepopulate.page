@@ -1,0 +1,20 @@
+<apex:page standardcontroller="Opportunity" extensions="ExtensionController">
+ <apex:form >
+ <apex:pageBlock >
+ <apex:pageBlockSection >
+ <apex:inputField value="{!opp.Name}"/>
+ </apex:pageBlockSection>
+ <apex:actionRegion >
+ <apex:pageBlockSection id="accountInfo" title="Information of Account">
+ <apex:inputField value="{!opp.AccountId}">
+ <apex:actionSupport event="onchange" action="{!populateRelAccFields}" rerender="accountInfo"/>
+ </apex:inputField>
+ <apex:outputField value="{!opp.Account.Phone}"/>
+ <apex:outputField value="{!opp.Account.Type}"/>
+ </apex:pageBlockSection>
+ </apex:actionRegion>
+ <apex:commandButton value="Cancel" action="{!cancel}"/>
+ <apex:commandButton value="Save" action="{!save}"/>
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

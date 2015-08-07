@@ -1,0 +1,21 @@
+<apex:page controller="ListOfSubOpportunity"  >
+ <apex:form >
+  <apex:pageblock >
+   <apex:pageblockTable value="{!SubOpportunityList}" var="opp">
+   <apex:column value="{!opp.Name}"/>
+   <apex:column value="{!opp.CloseDate}"/> 
+   <apex:column value="{!opp.StageName}"/>
+   <apex:column value="{!opp.Sub_Type__c}"/>  
+   <apex:column >
+       <apex:commandLink value="Edit" action="{!pageredir}">
+       <apex:param name="myid" value="{!opp.id}"/>
+       </apex:commandLink>
+   </apex:column>
+   </apex:pageblockTable> 
+   
+   <apex:pageBlockButtons >
+      <apex:commandButton value="New" action="{!NewOpp}"/>
+   </apex:pageBlockButtons> 
+  </apex:pageblock>
+</apex:form>
+</apex:page>

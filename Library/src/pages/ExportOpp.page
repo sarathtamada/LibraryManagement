@@ -1,0 +1,23 @@
+<apex:page cache="true" standardController="Opportunity"  recordSetVar="Opport" extensions="extActivitiesExport"
+            contenttype="application/vnd.ms-excel#SelectedOpp.xls" action="{!export}">
+   
+     <style type="text/css">
+        .oddrow{background-color: #00FFFF; } 
+        .evenrow{background-color: #7FFFD4; } 
+        .textalign{text-align:center; } 
+    </style>
+    
+    
+    <apex:form id="theForm"> 
+        
+        <apex:pageBlock title="">
+            <apex:pageBlockTable value="{!selected}" var="opp" rowClasses="oddrow,evenrow" styleclass="textalign" >
+               <apex:column value="{!opp.ID}"/>
+               <apex:column value="{!opp.Name}"/>
+               <apex:column value="{!opp.CloseDate}"/>
+               <apex:column value="{!opp.Amount}"/>
+               <apex:column value="{!opp.StageName}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

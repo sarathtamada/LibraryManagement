@@ -1,0 +1,7 @@
+<apex:page controller="ErrorMsgController">
+<apex:form >
+<apex:pageMessages ></apex:pageMessages>
+<apex:messages />
+<apex:commandButton value="Click" action="{!DisplayError}"/>
+</apex:form>
+</apex:page>

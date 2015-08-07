@@ -1,0 +1,19 @@
+<apex:page standardController="Opportunity" extensions="SubOpportunityController" docType="html-5.0" tabStyle="Opportunity">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Sub Opportunity Details">
+                Name          <apex:inputText value="{!subOpportunityName}"></apex:inputText>
+                Closed Date   <apex:input type="date" value="{!closeDate}"></apex:input>
+                Type          <apex:selectList size="1" multiselect="false" value="{!selectedType}">
+                                <apex:selectOptions value="{!subTypes}"></apex:selectOptions>
+                              </apex:selectList>
+                Stage         <apex:selectList size="1" multiselect="false" value="{!selectedStage}">
+                                 <apex:selectOptions value="{!stages}"></apex:selectOptions>
+                              </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                   <apex:commandButton value="Create" action="{!createSubOpportunity}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,24 @@
+<apex:page controller="RemotingObjectsController">
+  <script>
+      /* Declare Javascript Function 
+      function Account(){
+          this.Id = null;
+          this.Name = null;
+          }
+
+      var acc1 = new Account();
+      acc1.Name = 'Texas';
+   
+      var acc2 = new Account();
+      acc2.Name = 'Austin';
+   
+  var accounts = new Array(acc1, acc2);
+
+      Visualforce.remoting.Manager.invokeAction(
+        '{!$RemoteAction.RemotingObjectsController.addAccounts}',
+        accounts
+        function(result, event) {
+          console.log(result);
+        });
+  </script>
+</apex:page>

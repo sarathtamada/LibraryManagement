@@ -1,0 +1,67 @@
+<apex:page standardController="Book__c" recordSetVar="Books">
+    
+ 
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/plug-ins/1.10.7/integration/jqueryui/dataTables.jqueryui.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.7/integration/jqueryui/dataTables.jqueryui.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').dataTable({
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]   
+        
+      } ); 
+        
+    
+   $(document).ready(function(){
+     $('#example').dataTable()
+          .columnFilter();
+   });
+    } ); 
+
+    </script>
+    <apex:form >
+       
+        <apex:pageBlock >
+       
+            <table id="example" class="display" cellspacing="0" width="100%">
+                
+                <thead>
+                    <tr>
+                       <th>Book Id</th>
+                        <th>Subject</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Publication</th>
+                        <th>Number Of Books</th>
+                        <th>Borrowed Books</th>
+                        <th>Available Books</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <apex:repeat value="{!Books}" var="b" >
+                        <tr>
+                            <td>{!b.Name}</td>
+                            <td>{!b.Subject__c}</td>
+                            <td>{!b.Title__c}</td>
+                            <td>{!b.Author__c}</td>
+                            <td>{!b.Publisher__c}</td>  
+                            <td>{!b.NumberOfBooks__c}</td>
+                            <td>{!b.Borrowed_Books__c}</td>
+                            <td>{!b.Available_Books__c}</td>                        
+                        </tr>
+                        
+                   </apex:repeat>
+                        
+                </tbody>
+                               
+         
+            </table>
+           
+        </apex:pageBlock>
+      
+    </apex:form>
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page Controller="Trains" >
+
+<apex:form >
+<apex:pageBlock title="selected Bank" >
+<apex:messages />
+<apex:outputPanel id="msg">
+
+
+</apex:outputPanel>
+
+<apex:selectList id="Bank" value="{!Bank}"  Size="1">
+<apex:selectOptions value="{!items}"> </apex:selectOptions>
+
+<apex:actionSupport event="onchange" action="{!changeBank}" rerender="msg"/>
+</apex:selectList>
+<apex:pageBlockButtons >
+<apex:commandButton value="submit" action="{!changeBank}" reRender="msg"/>
+</apex:pageBlockButtons>
+
+</apex:pageBlock>
+</apex:form>
+  
+</apex:page>

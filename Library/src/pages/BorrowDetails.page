@@ -1,0 +1,23 @@
+<apex:page standardController="Borrow__c" recordSetVar="Borrows">
+    
+    <apex:form >
+        
+      <apex:pageBlock >      
+        
+        <apex:pageBlockTable cellpadding="3" cellspacing="4" value="{!Borrows}" var="b">
+            
+            <apex:column value="{!b.Name}" headerValue="Borrow Name"/><br/>           
+            <apex:column value="{!b.MemberID__c}" headerValue="MemberID"/><br/>
+            <apex:column value="{!b.Book_Id__c}" headerValue="BookId"/><br/>
+            <apex:column value="{!b.DayOfBorrowed__c}" headerValue="DayOfBorrowed"/><br/>
+            <apex:column value="{!b.DayOfReturn__c}" headerValue="DayOfReturn"/>
+            <apex:column value="{!b.Due_Date__c}" headerValue="Due_Date"/><br/>
+            <apex:column value="{!b.Fine__c}" headerValue="Fine"/>
+                      
+       </apex:pageBlockTable>
+        
+      </apex:pageBlock>
+             
+    </apex:form>
+       
+</apex:page>

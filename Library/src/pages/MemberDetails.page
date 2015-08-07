@@ -1,0 +1,24 @@
+<apex:page standardController="MemberID__c" recordSetVar="MemberID">
+    
+    <apex:form >
+        
+      <apex:pageBlock >      
+        
+        <apex:pageBlockTable cellpadding="3" cellspacing="4" value="{!MemberID}" var="m">
+             
+          <apex:column value="{!m.Name}" headerValue="Member ID"/><br/>           
+           
+            <apex:column value="{!m.NAME__c}" headerValue="NAME"/><br/>
+            <apex:column value="{!m.Department__c}" headerValue="Department"/><br/>
+            <apex:column value="{!m.EMAIL__c}" headerValue="EMAIL"/><br/>
+            <apex:column value="{!m.Mobile_Number__c}" headerValue="Mobile_Number"/><br/>
+            <apex:column value="{!m.Required_Books__c}" headerValue="Required Books"/>
+            <apex:column value="{!m.Borrowed_Books__c}" headerValue="Borrowed Books"/>
+                                 
+          </apex:pageBlockTable>
+        
+       </apex:pageBlock>
+             
+    </apex:form>
+       
+</apex:page>

@@ -1,0 +1,47 @@
+<apex:page controller="SiteLoginController" id="loginComponent">
+<script>
+function login(){
+            var pw = document.getElementById('password').value;
+            var usr= document.getElementById('username').value;
+            
+            SiteLoginController.remotelogin(usr, pw);
+}
+function loginCallback(result, event) {
+            if(event.type == 'exception') {
+                alert(event.message);
+            } else {
+                window.location = result;
+            }}
+ </script>
+ <apex:form id="loginForm" forceSSL="true">
+<apex:outputPanel layout="block">
+  <apex:pageMessages id="error"/>
+  <apex:panelGrid columns="2" style="margin-top:1em;">
+     <apex:inputText id="username" value="{!username}"/>
+    <!--<input type="text" id="username" /> -->
+
+    <apex:outputLabel value="{!$Label.site.password}" for="password"/>
+
+
+     <apex:inputSecret id="password" value="{!password}"/>
+  <!--<input type="password" id="password" />-->
+
+
+    <apex:outputText value=""/>
+
+
+   <!--  <apex:commandButton action="{!login}" value="{!$Label.site.login_button}" id="loginButton"/>-->
+    <a  onclick="login()">LOG IN</a>
+
+    <apex:outputText value=""/>
+    <apex:outputText value=""/>
+    <apex:outputText value=""/>
+    <apex:panelGroup id="theLinks">
+    
+      <apex:outputText value=" | " rendered="{!$Site.RegistrationEnabled}" />
+      
+    </apex:panelGroup>
+  </apex:panelGrid> 
+</apex:outputPanel>
+</apex:form>
+</apex:page>

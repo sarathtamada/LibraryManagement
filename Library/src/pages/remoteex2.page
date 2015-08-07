@@ -1,0 +1,43 @@
+<apex:page controller="TEZ_AC_RemoteActionExample">  
+
+    <script type="text/javascript">  
+    function getRemoteAccount(){  
+        //Get the Account Name   
+        var accountName = document.getElementById('acctSearch').value;  
+  
+        Visualforce.remoting.Manager.invokeAction(  
+            '{!$RemoteAction.TEZ_AC_RemoteActionExample.getAccount}', //NameSpace  
+            accountName, //Pass Account Name  
+            function(result, event){ // Callback Function  
+                if (event.status) {  
+                    // Get DOM IDs for HTML and Visualforce elements like this  
+                    document.getElementById('remoteAcctName').innerHTML = result.Name  
+                    document.getElementById("{!$Component.block.blockSection.secondItem.remoteAcctId}").innerHTML = result.Id;  
+                } else if (event.type === 'exception') {  
+                    document.getElementById("responseErrors").innerHTML = event.message;  
+                } else {  
+                    document.getElementById("responseErrors").innerHTML = event.message;  
+                }  
+            },   
+            {escape: true} //configuration  
+        );  
+    }  
+    </script>  
+  
+    <input id="acctSearch" type="text"/>  
+    <button onclick="getRemoteAccount()">Get Account </button> 
+   <!--  <apex:commandButton onclick="getRemoteAccount()" value="Get Account"></apex:commandButton> --> 
+    <div id="responseErrors"></div>  
+  
+    <apex:pageblock id="block">  
+        <apex:pageblocksection id="blockSection" columns="2">  
+            <apex:pageblocksectionitem id="firstItem">  
+                <span id="remoteAcctName"></span>  
+            </apex:pageblocksectionitem>  
+            <apex:pageblocksectionitem id="secondItem">  
+                <apex:outputtext id="remoteAcctId">  
+            </apex:outputtext></apex:pageblocksectionitem>  
+        </apex:pageblocksection>  
+    </apex:pageblock>  
+
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page standardController="Train__c" Extensions="Trainbill">
+  <apex:form >
+    <apex:pageBlock title="Book Ticket">
+  <apex:pageBlockSection >
+  
+   <apex:inputText value="{!Train__c.name}"/>
+   <apex:inputField value="{!Train__c.Email__c}"/>
+   <apex:inputField value="{!Train__c.From_Station__c}"/>
+   
+    <apex:inputField value="{!Train__c.Place_an_Order__c}"/>
+    <apex:inputField value="{!Train__c.ToStation__c}"/>
+     <apex:inputField value="{!Train__c.ReservationDate__c}"/>
+     <apex:inputField value="{!Train__c.Online_Payment__c}" />
+          <apex:inputField value="{!Train__c.Mobile__c}"/>
+   <center><apex:commandButton action="{!save}" value="Save"/></center>
+  </apex:pageBlockSection>
+  
+  
+   </apex:pageBlock>
+  
+  </apex:form>
+    
+</apex:page>

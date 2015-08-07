@@ -1,0 +1,17 @@
+<apex:page standardController="contact" extensions="tablesorting">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockButtons >
+     <apex:commandButton action="{!select1}" value="select"/>
+    </apex:pageBlockButtons>
+     <apex:pageBlockSection >
+    <apex:inputField value="{!c.Select_Sorting_parameter__c}"/>
+    </apex:pageBlockSection>
+ <apex:pageBlockTable var="k" value="{!tablevar}">
+  <apex:column value="{!k.firstname}"/> 
+  <apex:column value="{!k.lastname}"/>
+  <apex:column value="{!k.id}"/>
+ </apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>
